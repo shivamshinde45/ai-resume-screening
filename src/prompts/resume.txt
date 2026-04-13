@@ -1,0 +1,8 @@
+
+Return JSON only:
+{
+ "score": number,
+ "verdict": "SELECTED or REJECTED",
+ "missing_requirements": [],
+ "justification": ""
+}

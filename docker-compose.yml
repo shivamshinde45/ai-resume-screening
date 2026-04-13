@@ -1,0 +1,25 @@
+
+version: "3.8"
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: .env
+    depends_on: [postgres, redis]
+
+  worker:
+    build: .
+    command: npm run worker
+    env_file: .env
+    depends_on: [postgres, redis]
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: resume_db
+
+  redis:
+    image: redis:7
